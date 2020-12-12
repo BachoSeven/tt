@@ -10,6 +10,7 @@
 #define MAX_LINES 255
 #define MAX_LINE_LENGTH 80
 
+
 int main(int argc, char *argv[])
 {
         char buf[MAX_LINES][MAX_LINE_LENGTH + 1];
@@ -96,7 +97,7 @@ int main(int argc, char *argv[])
                  * move on to the next one */
                 while (strcmp(input_string, buf[buf_index])) {
                         int ch;
-                        
+
                         /* get the input char */
                         ch = getch();
 
@@ -107,8 +108,8 @@ int main(int argc, char *argv[])
                         if (input_index == 0)
                                 time(&line_start_time);
 
-                        /* quit if F4 is pressed */
-                        if (ch == KEY_F(4)) {
+                        /* quit if Esc is pressed */
+                        if (ch == 27) {
                                 endwin();
                                 if (total_word_count && total_minutes) {
                                         printf("     WPM: %.0f\n", (total_word_count / total_minutes));
